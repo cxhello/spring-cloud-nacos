@@ -1,0 +1,17 @@
+version: '3.4'
+services:
+  spring-cloud-nacos:
+    image: _images_
+    container_name: spring-cloud-nacos
+    hostname: spring-cloud-nacos
+    restart: always
+    expose:
+      - 8080
+    environment:
+      - NACOS_IP=nacos
+      - NACOS_PORT=8848
+      - NACOS_NAME=nacos
+      - NACOS_PASSWORD=nacos
+    volumes:
+      #设置时区使用宿主机时区,防止时间少8小时
+      - ./localtime:/etc/localtime:ro
